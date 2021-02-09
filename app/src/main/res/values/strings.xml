@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Emergency</string>
+    <string name="already"> <u>Already have an account?</u>.</string>
+    <string name="select">SELECT A DEPARTMENT</string>
+    <string-array name="departments">
+        <item>SELECT THE DEPARTMENT</item>
+        <item>Police</item>
+        <item>Fire_force</item>
+        <item>Hospital</item>
+        <item>Ambulance</item>
+        <item>Child_helpline</item>
+        <item>Women_helpline</item>
+        <item>Kseb</item>
+        <item>Water_authority</item>
+        <item>Pwd_office</item>
+        <item>Disaster_managmnt</item>
+        <item>Coast_guard</item>
+        <item>Anti_ragging_helpline</item>
+    </string-array>
+</resources>
