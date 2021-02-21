@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         cardView11 = (CardView) findViewById(R.id.crd11);
         cardView12 = (CardView) findViewById(R.id.crd12);
 
+        System.out.println("svsx");
 
 
 
@@ -57,13 +58,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
                 != PackageManager.PERMISSION_GRANTED
                 && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
@@ -73,7 +67,9 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                System.out.println("svsx");
                 Intent intent = new Intent(MainActivity.this,addDetails.class);
+
                 startActivity(intent);
             }
         });
