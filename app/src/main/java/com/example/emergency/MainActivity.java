@@ -5,19 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements LocationListener {
+public class MainActivity extends AppCompatActivity {
 
     CircleImageView add,user;
     CardView cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         cardView11 = (CardView) findViewById(R.id.crd11);
         cardView12 = (CardView) findViewById(R.id.crd12);
 
-        System.out.println("svsx");
+
 
 
 
@@ -67,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("svsx");
                 Intent intent = new Intent(MainActivity.this,addDetails.class);
 
                 startActivity(intent);
@@ -241,8 +238,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     }
 
-    @Override
-    public void onLocationChanged(@NonNull Location location) {
+   // @Override
+
+
+    public void onLocationChanged(Location location) {
         if(location != null){
          latitude = location.getLatitude();
          longitude = location.getLongitude();}

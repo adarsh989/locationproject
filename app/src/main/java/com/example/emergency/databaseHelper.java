@@ -95,7 +95,6 @@ public class databaseHelper extends SQLiteOpenHelper {
         String query ="select * from "+ tablename;
                 //"SELECT *, ( 6371 * acos ( cos ( radians(" + mylan + ") ) * cos( radians( LATITUDE ) ) * cos( radians( LONGITUDE ) - radians("+  mylon +") ) + sin ( radians("+  mylon +") ) * sin( radians( LATITUDE ) ))) AS distance FROM "+ tablename +" HAVING distance < 30 ORDER BY distance LIMIT 0 , 20;";
 
-
         Cursor cursor = null;
         if (myDb != null){
            cursor = myDb.rawQuery(query, null);
