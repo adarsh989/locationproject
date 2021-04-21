@@ -90,6 +90,22 @@ public class databaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public boolean insertIntoNews(String tableNews,String news){
+
+        SQLiteDatabase myDb = this.getWritableDatabase();
+        String newTable = "create table if not exists " + tableNews + "(SL_NO INTEGER PRIMARY KEY AUTOINCREMENT,NEWS varchar(1000))";
+        myDb.execSQL(newTable);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("NEWS", news);
+        long result = myDb.insert(tableNews,null,contentValues);
+        myDb.close();
+        if(result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
     Cursor readData(String tablename,double mylan, double mylon){
         SQLiteDatabase myDb = this.getReadableDatabase();
         String query ="select * from "+ tablename;
@@ -135,6 +151,17 @@ public class databaseHelper extends SQLiteOpenHelper {
     Cursor userReadData(String name){
         SQLiteDatabase myDb = this.getWritableDatabase();
         String query ="select * from "+ TABLE_NAME + " where USERNAME="+"'"+name+"' ";
+        Cursor cursor = null;
+        if (myDb != null){
+            cursor = myDb.rawQuery(query, null);
+        }
+        return cursor;
+
+    }
+
+    Cursor readNews(){
+        SQLiteDatabase myDb = this.getReadableDatabase();
+        String query ="SELECT * FROM NEWS ORDER BY NEWS DESC LIMIT 1";
         Cursor cursor = null;
         if (myDb != null){
             cursor = myDb.rawQuery(query, null);

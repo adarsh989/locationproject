@@ -4,10 +4,15 @@ import  android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,7 +26,9 @@ public class user_main extends AppCompatActivity {
     CircleImageView add;
     CardView cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
     double latitude,longitude;
-    String uname;
+    String uname,uname1;
+    TextView news;
+    databaseHelper myDb;
 
     LocationManager locationManager;
 
@@ -46,6 +53,18 @@ public class user_main extends AppCompatActivity {
         cardView10 = (CardView) findViewById(R.id.crd10);
         cardView11 = (CardView) findViewById(R.id.crd11);
         cardView12 = (CardView) findViewById(R.id.crd12);
+        news = (TextView)findViewById(R.id.sc);
+
+        myDb = new databaseHelper(this);
+
+        news.setMovementMethod(new ScrollingMovementMethod());
+
+        //uname1 = getIntent().getStringExtra("NEWS");
+        getNews();
+
+        news.setEllipsize(TextUtils.TruncateAt.MARQUEE);
+        news.setSelected(true);
+
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -54,8 +73,13 @@ public class user_main extends AppCompatActivity {
                 != PackageManager.PERMISSION_GRANTED) {
             return;
         }
+
         Location location = locationManager.getLastKnownLocation(locationManager.NETWORK_PROVIDER);
         onLocationChanged(location);
+
+
+
+
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -227,6 +251,17 @@ public class user_main extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void getNews() {
+        Cursor cursor = myDb.readNews();
+        if(cursor.getCount() == 0){
+            Toast.makeText(user_main.this, "NO DATA FOUND",Toast.LENGTH_SHORT).show();
+        } else {
+            if (cursor.moveToFirst()) {
+                news.setText(cursor.getString(1));
+            }
+        }
     }
 
     public void onLocationChanged(@NonNull Location location) {

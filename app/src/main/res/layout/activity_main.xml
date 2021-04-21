@@ -48,35 +48,53 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
                 android:id="@+id/profile_image"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:src="@drawable/ic_baseline_add_24"
                 app:civ_border_width="1dp"
                 app:civ_border_color="#FFFFFF"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="56dp"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="36dp"
                 android:text="ADD ITEM"
                 />
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_marginTop="0dp"
                 android:id="@+id/user"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_marginLeft="235dp"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="290dp"
                 android:src="@drawable/ic_baseline_person_24"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#FFFFFF"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_marginLeft="290dp"
+                android:layout_marginTop="36dp"
+                android:text="USER \n LIST" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_marginTop="0dp"
+                android:id="@+id/news"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginLeft="240dp"
+                android:src="@drawable/ic_baseline_text_rotation_none_24"
                 app:civ_border_width="1dp"
                 app:civ_border_color="#FFFFFF"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="56dp"
-                android:layout_marginLeft="230dp"
-                android:text="USER LIST"
+                android:layout_marginTop="36dp"
+                android:layout_marginLeft="225dp"
+                android:text="    NEWS \nUPDATES"
                 />
+
 
         </RelativeLayout>
 

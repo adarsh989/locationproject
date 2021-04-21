@@ -17,7 +17,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-    CircleImageView add,user;
+    CircleImageView add,user,news;
     CardView cardView1,cardView2,cardView3,cardView4,cardView5,cardView6,cardView7,cardView8,cardView9,cardView10,cardView11,cardView12;
     double latitude,longitude;
 
@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         add = (CircleImageView) findViewById(R.id.profile_image);
+        news = (CircleImageView) findViewById(R.id.news);
         user = (CircleImageView) findViewById(R.id.user);
         cardView1 = (CardView) findViewById(R.id.crd1);
         cardView2 = (CardView) findViewById(R.id.crd2);
@@ -76,6 +77,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this,userlist.class);
                 startActivity(i);
+            }
+        });
+
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,addNews.class);
+
+                startActivity(intent);
             }
         });
 

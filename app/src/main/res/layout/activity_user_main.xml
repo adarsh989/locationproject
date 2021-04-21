@@ -68,6 +68,17 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/sc"
+            android:scrollHorizontally="true"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            />
+
         <GridLayout
             android:columnCount="2"
             android:layout_marginTop="40dp"

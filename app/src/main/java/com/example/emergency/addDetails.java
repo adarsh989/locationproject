@@ -53,7 +53,6 @@ public class addDetails extends AppCompatActivity {
                     Toast.makeText(addDetails.this, "NO FIELD SHOULD BE EMPTY",Toast.LENGTH_SHORT).show();
                 }
                 else if (!e2.matches("[0-9]{10}")){
-                    //Toast.makeText(singUp.this,"INVALID NUMBER",Toast.LENGTH_LONG).show();
                     phone.requestFocus();
                     phone.setError("INVALID PHONE NUMBER");
                 }
